@@ -27,7 +27,7 @@ for image in sorted(os.listdir(folder_name)):
     features = model.extract(folder_name+image)
     sequence.append(features)
 
-rnn_model = 'capstone1/data/check_points/lstm-features.032-0.449.hdf5'
+rnn_model = 'capstone1/data/check_points/lstm-features.012-2.414.hdf5'
 rnn_model_load = load_model(rnn_model)
 
 
