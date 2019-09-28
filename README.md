@@ -1,14 +1,4 @@
-# Five video classification methods
-
-The five video classification methods:
-
-1. Classify one frame at a time with a ConvNet
-1. Extract features from each frame with a ConvNet, passing the sequence to an RNN, in a separate network
-1. Use a time-dstirbuted ConvNet, passing the features to an RNN, much like #2 but all in one network (this is the `lrcn` network in the code).
-1. Extract features from each frame with a ConvNet and pass the sequence to an MLP
-1. Use a 3D convolutional network (has two versions of 3d conv to choose from)
-
-See the accompanying blog post for full details: https://medium.com/@harvitronix/five-video-classification-methods-implemented-in-keras-and-tensorflow-99cad29cc0b5
+This project was done as a part of final year capstone project at vit. This project is based on the repository https://github.com/adithyavit/five-video-classification-methods which uses UCF101 dataset. This project builds on this project by using a related but different algorithm on a different dataset https://webpages.uncc.edu/cchen62/dataset.html to achieve multi class video classification.
 
 ## Requirements
 
@@ -22,9 +12,10 @@ You must also have `ffmpeg` installed in order to extract the video files. If `f
 
 First, download the dataset from UCF into the `data` folder:
 
-`cd data && wget http://crcv.ucf.edu/data/UCF101/UCF101.rar`
+https://webpages.uncc.edu/cchen62/dataset.html`
 
-Then extract it with `unrar e UCF101.rar`.
+
+Then extract it with `unrar e filename.rar`.
 
 Next, create folders (still in the data folder) with `mkdir train && mkdir test && mkdir sequences && mkdir checkpoints`.
 
@@ -48,21 +39,30 @@ The models are all defined in `models.py`. Reference that file to see which mode
 
 Training logs are saved to CSV and also to TensorBoard files. To see progress while training, run `tensorboard --logdir=data/logs` from the project root folder.
 
+## Methods used
+# Creating the Model.
+
+1. Move all the videos to structured folders
+2. Split the data into train and test sets
+3. Extract frames(images) from videos
+4. Select 40 keyframes for each video
+# Model 1 
+5. Extract features using topless inception v3
+# Model 2
+5. Extract features using topless mobilenet
+6. Save the features as npy files
+7. Train rnn on npy files
+8. Save the Rnn model
+# Deploy the Model
+1. For new video extract 40 frames
+2. Pass frames through topless inceptionv3 to extract features
+3. Pass features throught rnn model to get the prediction
+
+# screeshot of the output
+![]images/predictions_image.png
+
 ## Demo/Using models
 
-I have not yet implemented a demo where you can pass a video file to a model and get a prediction. Pull requests are welcome if you'd like to help out!
 
-## TODO
-
-- [ ] Add data augmentation to fight overfitting
-- [x] Support multiple workers in the data generator for faster training
-- [ ] Add a demo script
-- [ ] Support other datasets
-- [ ] Implement optical flow
-- [ ] Implement more complex network architectures, like optical flow/CNN fusion
 
 ## UCF101 Citation
-
-Khurram Soomro, Amir Roshan Zamir and Mubarak Shah, UCF101: A Dataset of 101 Human Action Classes From Videos in The Wild., CRCV-TR-12-01, November, 2012. 
-
-# capstone1
