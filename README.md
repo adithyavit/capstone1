@@ -1,4 +1,3 @@
-This project was done as a part of final year capstone project at vit. This project is based on the repository https://github.com/adithyavit/five-video-classification-methods which uses UCF101 dataset. This project builds on this project by using a related but different algorithm on a different dataset https://webpages.uncc.edu/cchen62/dataset.html to achieve multi class video classification.
 
 ## Requirements
 
@@ -66,3 +65,5 @@ Training logs are saved to CSV and also to TensorBoard files. To see progress wh
 
 
 ## UCF101 Citation
+
+This project was done as a part of final year capstone project at vit. This project is based on the repository https://github.com/adithyavit/five-video-classification-methods which uses UCF101 dataset. My project builds on this repository by using a related but different algorithm on a different dataset https://webpages.uncc.edu/cchen62/dataset.html to achieve multi class video classification.
