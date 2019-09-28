@@ -59,7 +59,7 @@ Training logs are saved to CSV and also to TensorBoard files. To see progress wh
 3. Pass features throught rnn model to get the prediction
 
 # screeshot of the output
-![]images/(predictions_image.png)
+![](images/predictions_image.png)
 
 ## Demo/Using models
 
